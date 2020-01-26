@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Signups = require('../model/signup')
 
-router.get('/', (req, res) => {
+router.get('/', (_req, res) => {
     Signups.find({}, {password: 0}, (err, doc) => {
         if(err) return res.status(404).json({err: "error while fetching"})
         res.status(200).json(doc)
